@@ -1,6 +1,6 @@
 # make_OM3_025deg_topo
 
-Make 0.25-degree `topog.nc` MOM bathymetry file from the GEBCO 2024 dataset.
+Make 4 km `topog.nc` MOM bathymetry file from the machine learning bathymetry datasets
 
 ## Workflow Overview
 
@@ -24,5 +24,5 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 --- 
 
 ```bash
-qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.025deg/2025.01.30/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.025deg/2025.01.30/ocean_vgrid.nc,INPUT_GBCO=/g/data/ik11/inputs/GEBCO_2024/GEBCO_2024.nc -P $PROJECT gen_topo.sh
+qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.025deg/2025.01.30/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.025deg/2025.01.30/ocean_vgrid.nc,INPUT_BATHY=/g/data/ik11/inputs/GEBCO_2024/GEBCO_2024.nc,INPUT_BATHY_SHORT=ML_IDENITIFIER -P $PROJECT gen_topo.sh
 ```
