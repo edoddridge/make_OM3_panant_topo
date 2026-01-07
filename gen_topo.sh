@@ -5,18 +5,20 @@
 #PBS -q normal
 #PBS -l walltime=4:00:00,mem=10GB
 #PBS -l wd
-#PBS -l storage=gdata/ik11+gdata/tm70+gdata/xp65+gdata/vk83
+#PBS -l storage=gdata/ik11+gdata/jk72+gdata/xp65+gdata/vk83
 
 # Input files - Using the environment variables passed via -v
 INPUT_HGRID=$INPUT_HGRID
 INPUT_VGRID=$INPUT_VGRID
-INPUT_GBCO=$INPUT_GBCO
+INPUT_BATHY=$INPUT_BATHY
+INPUT_BATHY_SHORT=$INPUT_BATHY_SHORT
+
 # Minimum allowed y-size for a cell (in m)
 CUTOFF_VALUE=6000
 # Output filenames
-ESMF_MESH_FILE='access-om3-25km-ESMFmesh.nc'
-ESMF_NO_MASK_MESH_FILE='access-om3-25km-nomask-ESMFmesh.nc'
-ROF_WEIGHTS_FILE='access-om3-25km-rof-remap-weights.nc'
+ESMF_MESH_FILE='access-om3-4km-panant-4km-ML-{$INPUT_BATHY_SHORT}-ESMFmesh.nc'
+ESMF_NO_MASK_MESH_FILE='access-om3-4km-ML-{$INPUT_BATHY_SHORT}-nomask-ESMFmesh.nc'
+ROF_WEIGHTS_FILE='access-om3-4km-ML-{$INPUT_BATHY_SHORT}-rof-remap-weights.nc'
 
 # Build bathymetry-tools
 ./build.sh
@@ -32,13 +34,13 @@ set -e #exit on error
 # Copy and link input files
 cp -L --preserve=timestamps "$INPUT_HGRID" ./ocean_hgrid.nc
 cp -L --preserve=timestamps "$INPUT_VGRID" ./ocean_vgrid.nc
-ln -sf "$INPUT_GBCO" ./GEBCO_2024.nc
+ln -sf "$INPUT_BATHY" ./BATHY.nc
 
 # Convert double precision vgrid to single
 ./bathymetry-tools/bin/float_vgrid --vgrid ocean_vgrid.nc --vgrid_type mom6
 
-# Interpolate topography on horizontal grid:
-./bathymetry-tools/bin/topogtools gen_topo -i GEBCO_2024.nc -o topog_new.nc --hgrid ocean_hgrid.nc --tripolar --longitude-offset -100
+# Interpolate topography on horizontal grid
+./bathymetry-tools/bin/topogtools gen_topo -i BATHY.nc -o topog_new.nc --hgrid ocean_hgrid.nc --tripolar --longitude-offset -100
 
 # Cut off T cells of size less than cutoff value
 ./bathymetry-tools/bin/topogtools min_dy -i topog_new.nc -o topog_new_min_dy.nc --cutoff "$CUTOFF_VALUE" --hgrid ocean_hgrid.nc
@@ -62,8 +64,8 @@ MD5SUM=$(md5sum $INPUT_HGRID | awk '{print $1}')
 ncatted -O -h -a input_file,global,a,c,"$(readlink -f $INPUT_HGRID) (md5sum:$MD5SUM) ; " topog.nc
 MD5SUM=$(md5sum "$INPUT_VGRID" | awk '{print $1}')
 ncatted -O -h -a input_file,global,a,c,"$(readlink -f $INPUT_VGRID) (md5sum:$MD5SUM) ; " topog.nc
-MD5SUM=$(md5sum $INPUT_GBCO | awk '{print $1}')
-ncatted -O -h -a input_file,global,a,c,"$(readlink -f $INPUT_GBCO) (md5sum:$MD5SUM) ; " topog.nc
+MD5SUM=$(md5sum $INPUT_BATHY | awk '{print $1}')
+ncatted -O -h -a input_file,global,a,c,"$(readlink -f $INPUT_BATHY) (md5sum:$MD5SUM) ; " topog.nc
 
 #Move intermediate files to a separate directory
 OUTPUT_DIR="topography_intermediate_output"
