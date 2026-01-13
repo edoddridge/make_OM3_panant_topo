@@ -1,9 +1,8 @@
-# make_OM3_025deg_topo
+# make_OM3_4km_PanAnt_topo
 
 Make 4 km `topog.nc` MOM bathymetry file from the machine learning bathymetry datasets
 
 ## Workflow Overview
-
 1. **Generate Topography:**  
    Use `./gen_topog.sh` to generate the topography and associated files. For 0.25-degree resolution or higher, this will require submission via `qsub`.
 
