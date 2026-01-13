@@ -3,7 +3,9 @@
 Make 4 km `topog.nc` MOM bathymetry file from the machine learning bathymetry datasets
 
 ## Workflow Overview
+
 0. **Pre-Process ML bathymetry products:**
+   
    Use `pre_process_topo.sh` to massage the ML bathymetry products to work with this pipeline.
 
 1. **Generate Topography:**  
@@ -25,9 +27,9 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 
 --- 
 
-##Commands
+## Commands
 
-###GEBCO
+### GEBCO
 ```bash
 qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/ik11/inputs/GEBCO_2024/GEBCO_2024.nc,INPUT_BATHY_SHORT=GEBCO24 -P $PROJECT gen_topo.sh
 ```
@@ -39,12 +41,12 @@ mv access-om3-4km-ML-GEBCO24-*.nc kmt.nc topog.nc /g/data/jk72/ed7737/access-om3
 
 Repeat for the other datasets.
 
-###ML Mean
+### ML Mean
 ```bash
 qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/ML_mean_pre_processed.nc,INPUT_BATHY_SHORT=MEAN -P $PROJECT gen_topo.sh
 ```
 
-###DTU_DKL
+### DTU_DKL
 ```bash
 qsub -v INPUT_HGRID=//g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DKL_6_Ker50_pre_processed.nc,INPUT_BATHY_SHORT=DTU_DKL -P $PROJECT gen_topo.sh
 ```
