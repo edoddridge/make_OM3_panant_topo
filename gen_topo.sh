@@ -16,7 +16,7 @@ INPUT_BATHY_SHORT=$INPUT_BATHY_SHORT
 # Minimum allowed y-size for a cell (in m)
 CUTOFF_VALUE=6000
 # Output filenames
-ESMF_MESH_FILE="access-om3-4km-panant-4km-ML-$INPUT_BATHY_SHORT-ESMFmesh.nc"
+ESMF_MESH_FILE="access-om3-4km-ML-$INPUT_BATHY_SHORT-ESMFmesh.nc"
 ESMF_NO_MASK_MESH_FILE="access-om3-4km-ML-$INPUT_BATHY_SHORT-nomask-ESMFmesh.nc"
 ROF_WEIGHTS_FILE="access-om3-4km-ML-$INPUT_BATHY_SHORT-rof-remap-weights.nc"
 
@@ -49,7 +49,7 @@ ln -sf "$INPUT_BATHY" ./BATHY.nc
 ./bathymetry-tools/bin/topogtools fill_fraction -i topog_new_min_dy.nc -o topog_new_fillfraction.nc  --fraction 0.5
 
 # edit_topo.py
-python3 ./bathymetry-tools/editTopo.py --overwrite --nogui --apply edit_025deg_topog_new_fillfraction.txt --output topog_new_fillfraction_edited.nc topog_new_fillfraction.nc
+python3 ./bathymetry-tools/editTopo.py --overwrite --nogui --apply edit_topog_new_fillfraction.txt --output topog_new_fillfraction_edited.nc topog_new_fillfraction.nc
 
 # Remove seas:
 ./bathymetry-tools/bin/topogtools deseas -i topog_new_fillfraction_edited.nc -o topog_new_fillfraction_edited_deseas.nc --grid_type C
