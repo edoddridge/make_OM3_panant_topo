@@ -25,7 +25,7 @@ ROF_WEIGHTS_FILE="access-om3-4km-ML-$INPUT_BATHY_SHORT-rof-remap-weights.nc"
 
 module purge
 module use /g/data/xp65/public/modules
-module load conda/analysis3-25.05
+module load conda/analysis3-25.11
 module load nco
 
 set -x #print commands to e file
