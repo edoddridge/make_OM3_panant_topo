@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 #PBS -q normal
-#PBS -l walltime=4:00:00,mem=10GB
+#PBS -l walltime=4:00:00,mem=50GB
 #PBS -l wd
 #PBS -l storage=gdata/ik11+gdata/jk72+gdata/xp65+gdata/vk83
 
@@ -14,7 +14,7 @@ INPUT_BATHY=$INPUT_BATHY
 INPUT_BATHY_SHORT=$INPUT_BATHY_SHORT
 
 # Minimum allowed y-size for a cell (in m)
-CUTOFF_VALUE=6000
+CUTOFF_VALUE=2000
 # Output filenames
 ESMF_MESH_FILE="access-om3-4km-ML-$INPUT_BATHY_SHORT-ESMFmesh.nc"
 ESMF_NO_MASK_MESH_FILE="access-om3-4km-ML-$INPUT_BATHY_SHORT-nomask-ESMFmesh.nc"
