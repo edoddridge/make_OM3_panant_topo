@@ -20,9 +20,9 @@ set -e
 git commit -am "Files used for topo/mask generation on $(date)" || true
 git push || true
 
-ncatted -O -h -a history,global,a,c," | Created on $(date) using https://github.com/ACCESS-NRI/make_OM3_025deg_topo/tree/$(git rev-parse --short HEAD)" topog.nc
-ncatted -O -h -a history,global,a,c," | Created on $(date) using https://github.com/ACCESS-NRI/make_OM3_025deg_topo/tree/$(git rev-parse --short HEAD)" kmt.nc
-ncatted -O -h -a history,global,a,c," | Updated on $(date) using https://github.com/ACCESS-NRI/make_OM3_025deg_topo/tree/$(git rev-parse --short HEAD)" ocean_vgrid.nc
+ncatted -O -h -a history,global,a,c," | Created on $(date) using https://github.com/edoddridge/make_OM3_panant_topo/tree/$(git rev-parse --short HEAD)" topog.nc
+ncatted -O -h -a history,global,a,c," | Created on $(date) using https://github.com/edoddridge/make_OM3_panant_topo/tree/$(git rev-parse --short HEAD)" kmt.nc
+ncatted -O -h -a history,global,a,c," | Updated on $(date) using https://github.com/edoddridge/make_OM3_panant_topo/tree/$(git rev-parse --short HEAD)" ocean_vgrid.nc
 
-ncatted -O -h -a history,global,a,c," and based on GEBCO_2024 topography" topog.nc
+ncatted -O -h -a history,global,a,c," and based on this topography" topog.nc
 
