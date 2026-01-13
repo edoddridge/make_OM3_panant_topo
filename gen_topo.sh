@@ -40,7 +40,7 @@ ln -sf "$INPUT_BATHY" ./BATHY.nc
 ./bathymetry-tools/bin/float_vgrid --vgrid ocean_vgrid.nc --vgrid_type mom6
 
 # Interpolate topography on horizontal grid
-./bathymetry-tools/bin/topogtools gen_topo -i BATHY.nc -o topog_new.nc --hgrid ocean_hgrid.nc --tripolar --longitude-offset -100
+./bathymetry-tools/bin/topogtools gen_topo -i BATHY.nc -o topog_new.nc --hgrid ocean_hgrid.nc --longitude-offset -100
 
 # Cut off T cells of size less than cutoff value
 ./bathymetry-tools/bin/topogtools min_dy -i topog_new.nc -o topog_new_min_dy.nc --cutoff "$CUTOFF_VALUE" --hgrid ocean_hgrid.nc
