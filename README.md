@@ -3,6 +3,9 @@
 Make 4 km `topog.nc` MOM bathymetry file from the machine learning bathymetry datasets
 
 ## Workflow Overview
+0. **Pre-Process ML bathymetry products**
+   Use `pre_process_topo.sh` to massage the ML bathymetry products to work with this pipeline.
+
 1. **Generate Topography:**  
    Use `./gen_topog.sh` to generate the topography and associated files. For 0.25-degree resolution or higher, this will require submission via `qsub`.
 
