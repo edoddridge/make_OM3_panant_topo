@@ -33,6 +33,10 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 ```bash
 qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/ik11/inputs/GEBCO_2024/GEBCO_2024.nc,INPUT_BATHY_SHORT=GEBCO24 -P $PROJECT gen_topo.sh
 ```
+#### Finalise files
+```bash
+bash finalise.sh
+```
 
 #### Move outputs to the GEBCO folder
 ```bash
@@ -45,11 +49,29 @@ Repeat for the other datasets.
 ```bash
 qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/ML_mean_pre_processed.nc,INPUT_BATHY_SHORT=MEAN -P $PROJECT gen_topo.sh
 ```
+#### Finalise files
+```bash
+bash finalise.sh
+```
+
+#### Move outputs to the ML Mean folder
+```bash
+mv access-om3-4km-ML-MEAN-*.nc kmt.nc topog.nc /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/ML_mean
+```
 
 ### DTU_DKL
 ```bash
 qsub -v INPUT_HGRID=//g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DKL_6_Ker50_pre_processed.nc,INPUT_BATHY_SHORT=DTU_DKL -P $PROJECT gen_topo.sh
 ```
 
-And so on.
+#### Finalise files
+```bash
+bash finalise.sh
+```
+
+#### Move outputs to the DTU_DKL folder
+```bash
+mv access-om3-4km-ML-DTU_DKL-*.nc kmt.nc topog.nc /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/DTU_DKL
+```
+And so on for the remaining datasets: `DTU_DNN`, `NCU_DNN`, and `NRL_CNN`.
 
