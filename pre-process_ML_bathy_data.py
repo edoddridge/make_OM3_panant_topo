@@ -90,6 +90,8 @@ def pre_process():
                    (ds_nrl_cnn['elevation']<0)
                           ), 1, 0, keep_attrs=True)
 
+    # not sure why, but the extended lat doesn't survive this process.
+    # Easiest solution was to apply this function to the mask.
     ocean_mask = extend_topog(ocean_mask.to_dataset())
 
     ocean_mask = ocean_mask.compute()
