@@ -92,15 +92,22 @@ def pre_process():
 
     # not sure why, but the extended lat doesn't survive this process.
     # Easiest solution was to apply this function to the mask.
-    ocean_mask = extend_topog(ocean_mask.to_dataset())
+    # ocean_mask = extend_topog(ocean_mask.to_dataset())
 
     ocean_mask = ocean_mask.compute()
 
-    ds_ML_mean_masked = xr.where(ocean_mask==1, ds_ML_mean, 0)
-    ds_dtu_dkl_masked = xr.where(ocean_mask==1, ds_dtu_dkl, 0)
-    ds_dtu_dnn_masked = xr.where(ocean_mask==1, ds_dtu_dnn, 0)
-    ds_ncu_dnn_masked = xr.where(ocean_mask==1, ds_ncu_dnn, 0)
-    ds_nrl_cnn_masked = xr.where(ocean_mask==1, ds_nrl_cnn, 0)
+    ds_ML_mean_masked = ocean_mask*ds_ML_mean
+    ds_dtu_dkl_masked = ocean_mask*ds_dtu_dkl
+    ds_dtu_dnn_masked = ocean_mask*ds_dtu_dnn
+    ds_ncu_dnn_masked = ocean_mask*ds_ncu_dnn
+    ds_nrl_cnn_masked = ocean_mask*ds_nrl_cnn
+
+    # append a region that extends to the south pole for interpolation
+    ds_ML_mean_masked = extend_topog(ds_ML_mean_masked)
+    ds_dtu_dkl_masked = extend_topog(ds_dtu_dkl_masked)
+    ds_dtu_dnn_masked = extend_topog(ds_dtu_dnn_masked)
+    ds_ncu_dnn_masked = extend_topog(ds_ncu_dnn_masked)
+    ds_nrl_cnn_masked = extend_topog(ds_nrl_cnn_masked)
 
     # export to netcdf
     ds_ML_mean_masked.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/ML_mean_pre_processed.nc')
@@ -113,3 +120,4 @@ def pre_process():
 
 if __name__ == "__main__":
     pre_process()
+
