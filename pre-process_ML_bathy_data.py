@@ -82,12 +82,30 @@ def pre_process():
     ds_ncu_dnn = extend_topog(ds_ncu_dnn)
     ds_nrl_cnn = extend_topog(ds_nrl_cnn)
 
+    # make a consistent lank mask for all of the datasets
+    ocean_mask = xr.where(((ds_ML_mean['elevation']<0) &
+                   (ds_dtu_dkl['elevation']<0) &
+                   (ds_dtu_dnn['elevation']<0) &
+                   (ds_ncu_dnn['elevation']<0) &
+                   (ds_nrl_cnn['elevation']<0)
+                          ), 1, 0, keep_attrs=True)
+
+    ocean_mask = extend_topog(ocean_mask.to_dataset())
+
+    ocean_mask = ocean_mask.compute()
+
+    ds_ML_mean_masked = xr.where(ocean_mask==1, ds_ML_mean, 0)
+    ds_dtu_dkl_masked = xr.where(ocean_mask==1, ds_dtu_dkl, 0)
+    ds_dtu_dnn_masked = xr.where(ocean_mask==1, ds_dtu_dnn, 0)
+    ds_ncu_dnn_masked = xr.where(ocean_mask==1, ds_ncu_dnn, 0)
+    ds_nrl_cnn_masked = xr.where(ocean_mask==1, ds_nrl_cnn, 0)
+
     # export to netcdf
-    ds_ML_mean.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/ML_mean_pre_processed.nc')
-    ds_dtu_dkl.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DKL_6_Ker50_pre_processed.nc')
-    ds_dtu_dnn.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DNN_Biao_topo_version2_pre_processed.nc')
-    ds_ncu_dnn.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NCU_DNN_bathymetry_model_April_2025_pre_processed.nc')
-    ds_nrl_cnn.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NRL_CNN_bathy_prediction_p65_20250401_pre_processed.nc')
+    ds_ML_mean_masked.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/ML_mean_pre_processed.nc')
+    ds_dtu_dkl_masked.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DKL_6_Ker50_pre_processed.nc')
+    ds_dtu_dnn_masked.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DNN_Biao_topo_version2_pre_processed.nc')
+    ds_ncu_dnn_masked.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NCU_DNN_bathymetry_model_April_2025_pre_processed.nc')
+    ds_nrl_cnn_masked.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NRL_CNN_bathy_prediction_p65_20250401_pre_processed.nc')
 
     return
 
