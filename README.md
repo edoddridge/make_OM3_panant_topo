@@ -29,49 +29,72 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 
 ## Commands
 
-### GEBCO
+### GEBCO 2024
 ```bash
-qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/ik11/inputs/GEBCO_2024/GEBCO_2024.nc,INPUT_BATHY_SHORT=GEBCO24 -P $PROJECT gen_topo.sh
-```
-#### Finalise files
-```bash
-bash finalise.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/ik11/inputs/GEBCO_2024/GEBCO_2024.nc,INPUT_BATHY_SHORT=GEBCO24 -P $PROJECT gen_topo.sh
+
+    bash finalise.sh
+
+    # move outputs to the GEBCO24 folder
+    mv access-om3-4km-ML-GEBCO24-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/GEBCO24
 ```
 
-#### Move outputs to the GEBCO folder
+### GEBCO 2025
 ```bash
-mv access-om3-4km-ML-GEBCO24-*.nc kmt.nc topog.nc /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/GEBCO
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/gebco_2025/GEBCO_2025.nc,INPUT_BATHY_SHORT=GEBCO25 -P $PROJECT gen_topo.sh
+
+    bash finalise.sh
+
+    # move outputs to the GEBCO25 folder
+    mv access-om3-4km-ML-GEBCO25-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/GEBCO25
 ```
 
-Repeat for the other datasets.
+### ML MEAN
+```bash
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/ML_mean_pre_processed.nc,INPUT_BATHY_SHORT=MEAN -P $PROJECT gen_topo.sh
 
-### ML Mean
-```bash
-qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/ML_mean_pre_processed.nc,INPUT_BATHY_SHORT=MEAN -P $PROJECT gen_topo.sh
-```
-#### Finalise files
-```bash
-bash finalise.sh
-```
+    bash finalise.sh
 
-#### Move outputs to the ML Mean folder
-```bash
-mv access-om3-4km-ML-MEAN-*.nc kmt.nc topog.nc /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/ML_mean
+    # move outputs to the ML_mean folder
+    mv access-om3-4km-ML-MEAN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/ML_MEAN
 ```
 
 ### DTU_DKL
 ```bash
-qsub -v INPUT_HGRID=//g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DKL_6_Ker50_pre_processed.nc,INPUT_BATHY_SHORT=DTU_DKL -P $PROJECT gen_topo.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DKL_6_Ker50_pre_processed.nc,INPUT_BATHY_SHORT=DTU_DKL -P $PROJECT gen_topo.sh
+
+    bash finalise.sh
+
+    # move outputs to the DTU_DKL folder
+    mv access-om3-4km-ML-DTU_DKL-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/DTU_DKL
 ```
 
-#### Finalise files
+### DTU_DNN
 ```bash
-bash finalise.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DNN_Biao_topo_version2_pre_processed.nc,INPUT_BATHY_SHORT=DTU_DNN -P $PROJECT gen_topo.sh
+
+    bash finalise.sh
+
+    # move outputs to the DTU_DNN folder
+    mv access-om3-4km-ML-DTU_DNN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/DTU_DNN
 ```
 
-#### Move outputs to the DTU_DKL folder
+### NCU_DNN
 ```bash
-mv access-om3-4km-ML-DTU_DKL-*.nc kmt.nc topog.nc /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/DTU_DKL
-```
-And so on for the remaining datasets: `DTU_DNN`, `NCU_DNN`, and `NRL_CNN`.
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NCU_DNN_bathymetry_model_April_2025_pre_processed.nc,INPUT_BATHY_SHORT=NCU_DNN -P $PROJECT gen_topo.sh
 
+    bash finalise.sh
+
+    # move outputs to the NCU_DNN folder
+    mv access-om3-4km-ML-NCU_DNN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/NCU_DNN
+```
+
+### NRL_CNN
+```bash
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NRL_CNN_bathy_prediction_p65_20250401_pre_processed.nc,INPUT_BATHY_SHORT=NRL_CNN -P $PROJECT gen_topo.sh
+
+    bash finalise.sh
+
+    # move outputs to the NRL_CNN folder
+    mv access-om3-4km-ML-NRL_CNN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/NRL_CNN
+```
