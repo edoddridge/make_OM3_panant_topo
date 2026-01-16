@@ -36,7 +36,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
     bash finalise.sh
 
     # move outputs to the GEBCO24 folder
-    mv access-om3-4km-ML-GEBCO24-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/GEBCO24
+    mv access-om3-4km-ML-GEBCO24-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/GEBCO24
 ```
 
 ### GEBCO 2025
@@ -46,7 +46,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
     bash finalise.sh
 
     # move outputs to the GEBCO25 folder
-    mv access-om3-4km-ML-GEBCO25-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/GEBCO25
+    mv access-om3-4km-ML-GEBCO25-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/GEBCO25
 ```
 
 ### ML MEAN
@@ -56,7 +56,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
     bash finalise.sh
 
     # move outputs to the ML_mean folder
-    mv access-om3-4km-ML-MEAN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/MEAN
+    mv access-om3-4km-ML-MEAN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/MEAN
 ```
 
 ### DTU_DKL
@@ -66,7 +66,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
     bash finalise.sh
 
     # move outputs to the DTU_DKL folder
-    mv access-om3-4km-ML-DTU_DKL-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/DTU_DKL
+    mv access-om3-4km-ML-DTU_DKL-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/DTU_DKL
 ```
 
 ### DTU_DNN
@@ -76,7 +76,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
     bash finalise.sh
 
     # move outputs to the DTU_DNN folder
-    mv access-om3-4km-ML-DTU_DNN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/DTU_DNN
+    mv access-om3-4km-ML-DTU_DNN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/DTU_DNN
 ```
 
 ### NCU_DNN
@@ -86,7 +86,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
     bash finalise.sh
 
     # move outputs to the NCU_DNN folder
-    mv access-om3-4km-ML-NCU_DNN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/NCU_DNN
+    mv access-om3-4km-ML-NCU_DNN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/NCU_DNN
 ```
 
 ### NRL_CNN
@@ -96,5 +96,5 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
     bash finalise.sh
 
     # move outputs to the NRL_CNN folder
-    mv access-om3-4km-ML-NRL_CNN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/NRL_CNN
+    mv access-om3-4km-ML-NRL_CNN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/NRL_CNN
 ```
