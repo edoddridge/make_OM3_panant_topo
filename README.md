@@ -56,7 +56,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
     bash finalise.sh
 
     # move outputs to the ML_mean folder
-    mv access-om3-4km-ML-MEAN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/ML_MEAN
+    mv access-om3-4km-ML-MEAN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/8km-global/bathy_products/MEAN
 ```
 
 ### DTU_DKL
