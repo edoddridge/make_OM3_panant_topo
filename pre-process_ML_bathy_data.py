@@ -67,6 +67,8 @@ def pre_process():
     ds_dtu_dnn = xr.open_dataset('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DNN_Biao_topo_version2.nc', chunks='auto')
     ds_ncu_dnn = xr.open_dataset('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NCU_DNN_bathymetry_model_April_2025.nc', chunks='auto')
     ds_nrl_cnn = xr.open_dataset('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NRL_CNN_bathy_prediction_p65_20250401.nc', chunks='auto')
+    ds_srtm15 = xr.open_dataset('/g/data/jk72/ed7737/datasets/bathymetry/SRTM15/SRTM15_V2.7.nc',
+                            chunks='auto')
 
     # rename variable to 'elevation'
     ds_ML_mean = ds_ML_mean["z"].rename("elevation").to_dataset()
@@ -74,6 +76,7 @@ def pre_process():
     ds_dtu_dnn = ds_dtu_dnn["prediction"].rename("elevation").to_dataset()
     ds_ncu_dnn = ds_ncu_dnn["z"].rename("elevation").to_dataset()
     ds_nrl_cnn = ds_nrl_cnn["z"].rename("elevation").to_dataset()
+    ds_srtm15 = ds_srtm15["z"].rename("elevation").to_dataset()
 
     # append a region that extends to the south pole for interpolation
     ds_ML_mean = extend_topog(ds_ML_mean, extend_lon=True)
@@ -114,7 +117,7 @@ def pre_process():
     ds_dtu_dkl_masked.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DKL_6_Ker50_pre_processed.nc')
     ds_dtu_dnn_masked.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DNN_Biao_topo_version2_pre_processed.nc')
     ds_ncu_dnn_masked.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NCU_DNN_bathymetry_model_April_2025_pre_processed.nc')
-    ds_nrl_cnn_masked.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NRL_CNN_bathy_prediction_p65_20250401_pre_processed.nc')
+ds_srtm15.to_netcdf('/g/data/jk72/ed7737/datasets/bathymetry/SRTM15/SRTM15_V2.7_pre_processed.nc')
 
     return
 

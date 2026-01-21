@@ -98,3 +98,13 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
     # move outputs to the NRL_CNN folder
     mv access-om3-4km-ML-NRL_CNN-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/NRL_CNN
 ```
+
+### SRTM15 V2.7
+```bash
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/SRTM15/SRTM15_V2.7_pre_processed.nc,INPUT_BATHY_SHORT=SRTM15_V2_7 -P $PROJECT gen_topo.sh
+
+    bash finalise.sh
+
+    # move outputs to the SRTM15_V2_7 folder
+    mv access-om3-4km-ML-SRTM15_V2_7-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/SRTM15_V2_7
+```
