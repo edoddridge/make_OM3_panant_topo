@@ -38,7 +38,7 @@ and run the following commands
 module purge
 module load nco
 ncks -d lat,-65.5,-63.5  DTU_DKL_6_Ker50_pre_processed.nc DTU_DKL_6_Ker50_pre_processed_subset_by_lat.nc
-ncks -d lon,-59.5,-57.5 DTU_DKL_6_Ker50_pre_processed_subset_by_lat.nc DTU_DKL_6_Ker50_pre_processed_subset_by_lat_lon.nc
+ncks -d lon,40.5,42.5 DTU_DKL_6_Ker50_pre_processed_subset_by_lat.nc DTU_DKL_6_Ker50_pre_processed_subset_by_lat_lon.nc
 ````
 
 Then cleanup
@@ -53,3 +53,11 @@ Move it to the `make_OM3_panant_topo` repository `test/data` folder.
 mkdir -p /home/552/ed7737/coding-and-projects/panant_bathy_ensemble/make_OM3_panant_topo/test/data/
 mv DTU_DKL_6_Ker50_pre_processed_subset_by_lat_lon.nc /home/552/ed7737/coding-and-projects/panant_bathy_ensemble/make_OM3_panant_topo/test/data/
 ````
+
+3. Apply the `gen_topo.sh` script to these cut down datasets
+
+```
+qsub -v INPUT_HGRID=/home/552/ed7737/coding-and-projects/panant_bathy_ensemble/make_OM3_panant_topo/test/data/ocean_hgrid_subset_by_lat_lon.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/home/552/ed7737/coding-and-projects/panant_bathy_ensemble/make_OM3_panant_topo/test/data/DTU_DKL_6_Ker50_pre_processed_subset_by_lat_lon.nc,INPUT_BATHY_SHORT=TEST -P $PROJECT gen_topo.sh
+```
+
+Unfortunately this doesn't work. I think it's becuase the script requires global bathymetry datasets, even though the grid file only covers a small region.
