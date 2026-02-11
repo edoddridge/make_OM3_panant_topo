@@ -25,5 +25,6 @@ rm DTU_DKL_6_Ker50_pre_processed_subset_by_lat.nc
 Move it to the `make_OM3_panant_topo` repository `test` folder.
 
 `
-mv DTU_DKL_6_Ker50_pre_processed_subset_by_lat_lon.nc /home/552/ed7737/coding-and-projects/panant_bathy_ensemble/make_OM3_panant_topo/test/data
+mkdir -p /home/552/ed7737/coding-and-projects/panant_bathy_ensemble/make_OM3_panant_topo/test/data/
+mv DTU_DKL_6_Ker50_pre_processed_subset_by_lat_lon.nc /home/552/ed7737/coding-and-projects/panant_bathy_ensemble/make_OM3_panant_topo/test/data/
 `
