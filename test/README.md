@@ -38,7 +38,7 @@ and run the following commands
 module purge
 module load nco
 ncks -d lat,-65.5,-63.5  DTU_DKL_6_Ker50_pre_processed.nc DTU_DKL_6_Ker50_pre_processed_subset_by_lat.nc
-ncks -d lon,40.5,42.5 DTU_DKL_6_Ker50_pre_processed_subset_by_lat.nc DTU_DKL_6_Ker50_pre_processed_subset_by_lat_lon.nc
+ncks -d lon,-59.5,-57.5 DTU_DKL_6_Ker50_pre_processed_subset_by_lat.nc DTU_DKL_6_Ker50_pre_processed_subset_by_lat_lon.nc
 ````
 
 Then cleanup
