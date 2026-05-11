@@ -31,7 +31,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 
 ### GEBCO 2024
 ```bash
-    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/ik11/inputs/GEBCO_2024/GEBCO_2024.nc,INPUT_BATHY_SHORT=GEBCO24 -P $PROJECT gen_topo.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/ik11/inputs/GEBCO_2024/GEBCO_2024.nc -P $PROJECT gen_topo.sh
 
     bash finalise.sh
 
@@ -41,7 +41,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 
 ### GEBCO 2025
 ```bash
-    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/gebco_2025/GEBCO_2025.nc,INPUT_BATHY_SHORT=GEBCO25 -P $PROJECT gen_topo.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/gebco_2025/GEBCO_2025.nc -P $PROJECT gen_topo.sh
 
     bash finalise.sh
 
@@ -51,7 +51,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 
 ### ML MEAN
 ```bash
-    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/ML_mean_pre_processed.nc,INPUT_BATHY_SHORT=MEAN -P $PROJECT gen_topo.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/ML_mean_pre_processed.nc -P $PROJECT gen_topo.sh
 
     bash finalise.sh
 
@@ -61,7 +61,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 
 ### DTU_DKL
 ```bash
-    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DKL_6_Ker50_pre_processed.nc,INPUT_BATHY_SHORT=DTU_DKL -P $PROJECT gen_topo.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DKL_6_Ker50_pre_processed.nc -P $PROJECT gen_topo.sh
 
     bash finalise.sh
 
@@ -71,7 +71,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 
 ### DTU_DNN
 ```bash
-    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DNN_Biao_topo_version2_pre_processed.nc,INPUT_BATHY_SHORT=DTU_DNN -P $PROJECT gen_topo.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/DTU_DNN_Biao_topo_version2_pre_processed.nc -P $PROJECT gen_topo.sh
 
     bash finalise.sh
 
@@ -81,7 +81,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 
 ### NCU_DNN
 ```bash
-    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NCU_DNN_bathymetry_model_April_2025_pre_processed.nc,INPUT_BATHY_SHORT=NCU_DNN -P $PROJECT gen_topo.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NCU_DNN_bathymetry_model_April_2025_pre_processed.nc -P $PROJECT gen_topo.sh
 
     bash finalise.sh
 
@@ -91,7 +91,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 
 ### NRL_CNN
 ```bash
-    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NRL_CNN_bathy_prediction_p65_20250401_pre_processed.nc,INPUT_BATHY_SHORT=NRL_CNN -P $PROJECT gen_topo.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/NRL_CNN_bathy_prediction_p65_20250401_pre_processed.nc -P $PROJECT gen_topo.sh
 
     bash finalise.sh
 
@@ -101,7 +101,7 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
 
 ### SRTM15 V2.7
 ```bash
-    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/SRTM15/SRTM15_V2.7_pre_processed.nc,INPUT_BATHY_SHORT=SRTM15_V2_7 -P $PROJECT gen_topo.sh
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/SRTM15/SRTM15_V2.7_pre_processed.nc -P $PROJECT gen_topo.sh
 
     bash finalise.sh
 

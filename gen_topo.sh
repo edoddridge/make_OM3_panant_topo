@@ -16,9 +16,9 @@ INPUT_BATHY_SHORT=$INPUT_BATHY_SHORT
 # Minimum allowed y-size for a cell (in m)
 CUTOFF_VALUE=2000
 # Output filenames
-ESMF_MESH_FILE="access-om3-4km-ML-$INPUT_BATHY_SHORT-ESMFmesh.nc"
-ESMF_NO_MASK_MESH_FILE="access-om3-4km-ML-$INPUT_BATHY_SHORT-nomask-ESMFmesh.nc"
-ROF_WEIGHTS_FILE="access-om3-4km-ML-$INPUT_BATHY_SHORT-rof-remap-weights.nc"
+ESMF_MESH_FILE="access-om3-4km-ESMFmesh.nc"
+ESMF_NO_MASK_MESH_FILE="access-om3-4km-nomask-ESMFmesh.nc"
+ROF_WEIGHTS_FILE="access-om3-4km-rof-remap-weights.nc"
 
 # Build bathymetry-tools
 ./build.sh
