@@ -49,6 +49,16 @@ This workflow relies on the **xp65 conda environments** for running the scripts 
     mv access-om3-4km-ML-GEBCO25-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/GEBCO25
 ```
 
+### GEBCO 2026
+```bash
+    qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/gebco_2026/GEBCO_2026.nc -P $PROJECT gen_topo.sh
+
+    bash finalise.sh
+
+    # move outputs to the GEBCO26 folder
+    mv access-om3-4km-ML-GEBCO26-*.nc kmt.nc topog.nc gen_topo.sh.* /g/data/jk72/ed7737/access-om3/inputs/4km-PanAntarctic/bathy_products/GEBCO26
+```
+
 ### ML MEAN
 ```bash
     qsub -v INPUT_HGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc,INPUT_VGRID=/g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc,INPUT_BATHY=/g/data/jk72/ed7737/datasets/bathymetry/ML_topos/ML_mean_pre_processed.nc -P $PROJECT gen_topo.sh
